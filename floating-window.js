@@ -1,3 +1,14 @@
+console.log("Zulip extension working", window, document);
+
+const stream = document.getElementsByClassName("floating_recipient")[0];
+console.log(stream);
+const btn = document.createElement("button");
+btn.addEventListener("click", createFloatingWindow);
+btn.innerHTML = "Floating Window";
+console.log(stream, btn);
+stream.appendChild(btn);
+console.log(stream, btn);
+
 (() => {
     const frames = document.getElementsByClassName("window");
     let topMostZIndex = 1;
@@ -47,3 +58,10 @@
         }
     }
 })();
+
+
+function createFloatingWindow() {
+    console.log("Creating floating window");
+    const floating_window = `<div class"f-window" ><div class="f-header"></div><h3>Hello World</h3></div>`
+    document.body.innerHTML += floating_window;
+}
