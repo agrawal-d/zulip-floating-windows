@@ -1,22 +1,14 @@
-console.log("Zulip extension working", window, document);
-
-const stream = document.getElementsByClassName("floating_recipient")[0];
-console.log(stream);
+console.log("Zulip extension working");
+const messageHeader = document.getElementsByClassName("message-header-contents")[0];
+const stream = messageHeader.children[0];
 const btn = document.createElement("button");
-btn.addEventListener("click", createFloatingWindow);
+btn.addEventListener("click", (e) => { e.preventDefault(); createFloatingWindow(stream) });
 btn.innerHTML = "Floating Window";
-console.log(stream, btn);
-stream.appendChild(btn);
-console.log(stream, btn);
+messageHeader.appendChild(btn);
 
-(() => {
-    const frames = document.getElementsByClassName("window");
-    let topMostZIndex = 1;
-    console.log(frames);
-    for (let frame of frames) {
-        dragElement(frame);
-
-    }
+const enable_drag = (frame) => {
+    let topMostZIndex = 10000;
+    dragElement(frame);
 
     function dragElement(frame) {
 
@@ -57,11 +49,25 @@ console.log(stream, btn);
             document.onmousemove = null;
         }
     }
-})();
+}
 
-
-function createFloatingWindow() {
-    console.log("Creating floating window");
-    const floating_window = `<div class"f-window" ><div class="f-header"></div><h3>Hello World</h3></div>`
-    document.body.innerHTML += floating_window;
+function createFloatingWindow(stream) {
+    console.log("Creating floating window", stream);
+    const fWindow = document.createElement("div");
+    fWindow.classList.add("f-window")
+    const fHeader = document.createElement("div");
+    fHeader.classList.add("f-header");
+    fWindow.appendChild(fHeader);
+    const frame = document.createElement("iframe");
+    frame.setAttribute("src", stream.href);
+    frame.setAttribute("mozbrowser", "true");
+    fWindow.appendChild(frame);
+    document.body.appendChild(fWindow);
+    frame.contentDocument.body.classList.add("floating-zulip");
+    const css = document.createElement("link");
+    css.setAttribute("href", browser.runtime.getURL("floating-window.css"));
+    css.setAttribute("rel", "stylesheet");
+    frame.contentDocument.head.appendChild(css);
+    frame.contentDocument.body.classList.add("floating-zulip");
+    enable_drag(fWindow);
 }

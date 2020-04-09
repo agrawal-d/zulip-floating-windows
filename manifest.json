@@ -20,5 +20,8 @@
         "floating-window.css"
       ]
     }
+  ],
+  "web_accessible_resources": [
+    "floating-window.css"
   ]
 }
