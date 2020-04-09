@@ -7,13 +7,25 @@ btn.innerHTML = "Floating Window";
 messageHeader.appendChild(btn);
 
 const enable_drag = (frame) => {
+    // Frame is the window.
     let topMostZIndex = 10000;
     dragElement(frame);
 
     function dragElement(frame) {
 
+        frame.addEventListener("mousedown", e => {
+            frame.style.zIndex = topMostZIndex++;
+            console.log(frame.childNodes[1]);
+            frame.childNodes[1].style.display = "none";
+            frame.style.opacity = "0.5";
+        });
 
-        frame.addEventListener("mousedown", (e) => frame.style.zIndex = topMostZIndex++);
+        frame.addEventListener("mouseup", e => {
+            frame.childNodes[1].style.display = "block";
+            frame.style.opacity = "1";
+
+
+        })
 
         var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
         frame.children[0].onmousedown = dragMouseDown;
@@ -39,8 +51,8 @@ const enable_drag = (frame) => {
             pos3 = e.clientX;
             pos4 = e.clientY;
             // set the element's new position:
-            frame.style.top = Math.max(Math.min((frame.offsetTop - pos2), window.innerHeight - 50), -250) + "px";
-            frame.style.left = Math.max(Math.min((frame.offsetLeft - pos1), window.innerWidth - 100), -250) + "px";
+            frame.style.top = Math.max(Math.min((frame.offsetTop - pos2), window.innerHeight - 50), -20) + "px";
+            frame.style.left = Math.max(Math.min((frame.offsetLeft - pos1), window.innerWidth - 100), -20) + "px";
         }
 
         function closeDragElement() {
@@ -51,12 +63,23 @@ const enable_drag = (frame) => {
     }
 }
 
+function closeWindow(window) {
+    console.log(window)
+}
+
+
 function createFloatingWindow(stream) {
     console.log("Creating floating window", stream);
     const fWindow = document.createElement("div");
+    fWindow.setAttribute("minimized", "false");
     fWindow.classList.add("f-window")
     const fHeader = document.createElement("div");
     fHeader.classList.add("f-header");
+    fHeader.innerHTML += `<div><b>Floating Narrow</b>\
+    <a style="float:right;pa" class="f-a red" onclick="this.parentElement.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement.parentElement)">Close</a> 
+    <a style="float:right" class="f-a">Minimize</a>
+    <div class="clearfix"></div>
+    `;
     fWindow.appendChild(fHeader);
     const frame = document.createElement("iframe");
     frame.setAttribute("src", stream.href);
@@ -67,7 +90,19 @@ function createFloatingWindow(stream) {
     const css = document.createElement("link");
     css.setAttribute("href", browser.runtime.getURL("floating-window.css"));
     css.setAttribute("rel", "stylesheet");
-    frame.contentDocument.head.appendChild(css);
-    frame.contentDocument.body.classList.add("floating-zulip");
+    frame.style.opacity = 0;
+    const loading = document.createElement("b");
+    loading.classList.add("floating-loading");
+    loading.innerHTML = "Loading";
+    fWindow.appendChild(loading);
+    console.log(css);
+    frame.onload = () => {
+        frame.style.opacity = 1;
+        loading.style.display = "none";
+        frame.contentDocument.head.appendChild(css);
+        frame.contentDocument.body.classList.add("floating-zulip");
+        console.log("Iframe loaded!");
+    }
+    frame.style.height = fWindow.offsetHeight - fHeader.offsetHeight + "px";
     enable_drag(fWindow);
 }

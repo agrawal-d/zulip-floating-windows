@@ -19,6 +19,16 @@
       "css": [
         "floating-window.css"
       ]
+    },
+    {
+      "matches": [
+        "*://zulipchat.org/*",
+        "*://chat.zulip.org/*"
+      ],
+      "all_frames": true,
+      "css": [
+        "floating-iframe.css"
+      ]
     }
   ],
   "web_accessible_resources": [
