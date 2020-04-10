@@ -36,7 +36,7 @@ In the above example, you `Alt+click` anywhere in `general > Custom Source Code 
 
 ### Chrome
 
-* [Download]((releases/chrome/zulip-extension.crx) the extension file for Chrome from the [releases/chrome](releases/chrome/zulip-extension.crx) folder.
+* [Download](releases/chrome/zulip-extension.crx) the extension file for Chrome from the [releases/chrome](releases/chrome/zulip-extension.crx) folder.
 * Open `chrome://extensions/` and enable developer mode from the top right.
 * Drag and drop the downloaded `zulip-extension.crx` file into the window to install the extension.
 
