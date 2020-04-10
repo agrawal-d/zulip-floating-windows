@@ -12,6 +12,20 @@ Enables floating narrows in Zulip, so that you can chat in multiple places at th
 
 ![Demo](screenshots/ext-screenshot.png)
 
+
+
+## How to Use
+
+`Alt + Click` on any narrow header to open a floating window. See example 'narrow title' below.
+
+![Narrow](screenshots/usage.gif)
+
+In the above example, you `Alt+click` anywhere in `general > Custom Source Code Zulip` header to open a floating window.
+
+
+
+
+
 ## About
 
 This unofficial extension was created by [agrawal-d](https://github.com/agrawal-d) for fun, and is in no way affiliated with Zulip.

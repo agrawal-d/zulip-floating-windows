@@ -1,5 +1,5 @@
 {
-  "description": "Enable floating Zulip narrows within the webapp.",
+  "description": "Enable floating Zulip narrows within the webapp. Alt+Click on narrow headers to use.",
   "manifest_version": 2,
   "name": "Zulip Floating Windows",
   "version": "0.1",
