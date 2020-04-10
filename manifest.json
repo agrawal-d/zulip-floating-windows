@@ -1,7 +1,7 @@
 {
   "description": "Floating streams in Zulip",
   "manifest_version": 2,
-  "name": "Zulip Floating Window",
+  "name": "Zulip Floating Windows",
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/borderify",
   "icons": {
@@ -9,29 +9,15 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://zulipchat.org/*",
-        "*://chat.zulip.org/*"
-      ],
-      "js": [
-        "floating-window.js"
-      ],
-      "css": [
-        "floating-window.css"
-      ]
+      "matches": ["*://zulipchat.org/*", "*://chat.zulip.org/*"],
+      "js": ["floating-window.js"],
+      "css": ["floating-window.css"]
     },
     {
-      "matches": [
-        "*://zulipchat.org/*",
-        "*://chat.zulip.org/*"
-      ],
+      "matches": ["*://zulipchat.org/*", "*://chat.zulip.org/*"],
       "all_frames": true,
-      "css": [
-        "floating-iframe.css"
-      ]
+      "css": ["floating-iframe.css"]
     }
   ],
-  "web_accessible_resources": [
-    "floating-window.css"
-  ]
+  "web_accessible_resources": ["foating-window.css"]
 }

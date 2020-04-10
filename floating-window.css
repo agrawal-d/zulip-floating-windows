@@ -26,6 +26,7 @@
   cursor: grab;
   color: white;
   padding: 5px;
+  border-bottom: 1px solid #243241;
 }
 iframe {
   border: 0px;
