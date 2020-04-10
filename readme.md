@@ -34,7 +34,7 @@ In the above example, you `Alt+click` anywhere in `general > Custom Source Code 
   * Open `about:debugging#/runtime/this-firefox` in Firefox.
   * Choose "Load temporary add on" and then select the downloaded zip file to load the extension.
 
-## Chrome
+### Chrome
 
 * [Download]((releases/chrome/zulip-extension.crx)) the extension file for Chrome from the [releases/chrome](releases/chrome/zulip-extension.crx) folder.
 * Open `chrome://extensions/` and enable developer mode from the top right.
