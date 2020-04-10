@@ -1,51 +1,68 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
-.f-window{
-    width:450px;
-    height:700px;
-    background:#151d25;
-    position: fixed;
-    top:50px;
-    left:50px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0,0.2);
-    z-index:10000;
-    color:black;
-    transition:opacity 0.1s;
+.f-window {
+  width: 350px;
+  height: 650px;
+  background: #151d25;
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  color: black;
+  transition: opacity 0.1s, height 0.1s;
 }
-.f-header{
-    width:100%;
-    border-radius: 5px 5px 0px 0px;
-    background:#151d25;
-    cursor: grab;
-    color:white;
-    padding:5px;
+
+.f-window:focus {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
 }
-iframe{
-    border:0px;
-    width:100%;
-    height:calc(100%);
+
+.f-header {
+  width: 100%;
+  border-radius: 5px 5px 0px 0px;
+  background: #151d25;
+  cursor: grab;
+  color: white;
+  padding: 5px;
 }
-.clearfix{
-    content:'clearfix';
-    display:block;
-    width:100%;
-    clear:both;
+iframe {
+  border: 0px;
+  width: 100%;
+  height: calc(100%);
 }
-.red{
-    color:rgb(230, 126, 126);
+.clearfix {
+  content: "clearfix";
+  display: block;
+  width: 100%;
+  clear: both;
 }
-.f-a{
-    padding-left:10px;
+.red {
+  color: rgb(230, 126, 126);
 }
-.floating-loading{
-    color:white;
-    text-align: center;
-    display: block;
-    position: absolute;
-    top:50px;
-    left:0px;
-    width:100%;
-    z-index:100;
+.f-a {
+  padding-left: 10px;
+}
+.floating-loading {
+  color: white;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 100%;
+  z-index: 100;
+}
+
+.f-window[minimized="true"] iframe {
+  display: none;
+  height: 0px !important;
+  visibility: hidden;
+}
+
+.f-window[minimized="true"] {
+  height: auto;
+  overflow: hidden;
+  width: 300px;
 }
