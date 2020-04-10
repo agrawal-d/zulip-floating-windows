@@ -14,7 +14,7 @@
         "*://chat.zulip.org/*",
         "*://localhost/*"
       ],
-      "js": ["src/floating-window.js"],
+      "js": ["src/browser-polyfill.min.js", "src/floating-window.js"],
       "css": ["src/css/floating-window.css"]
     },
     {

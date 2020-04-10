@@ -23,7 +23,22 @@ Enables floating narrows in Zulip, so that you can chat in multiple places at th
 In the above example, you `Alt+click` anywhere in `general > Custom Source Code Zulip` header to open a floating window.
 
 
+## Installation
 
+### Firefox
+
+* **[Pending Review - Use other steps for now]** [Install](https://addons.mozilla.org/en-GB/firefox/addon/zulip-floating-windows/) from the Firefox addons website.
+
+* Or install manually-
+  * [Download](releases/firefox/extension.zip) the extension file for Firefox from the [releases/firefox](releases/firefox/extension.zip) folder.
+  * Open `about:debugging#/runtime/this-firefox` in Firefox.
+  * Choose "Load temporary add on" and then select the downloaded zip file to load the extension.
+
+## Chrome
+
+* [Download]((releases/chrome/zulip-extension.crx)) the extension file for Chrome from the [releases/chrome](releases/chrome/zulip-extension.crx) folder.
+* Open `chrome://extensions/` and enable developer mode from the top right.
+* Drag and drop the downloaded `zulip-extension.crx` file into the window to install the extension.
 
 
 ## About

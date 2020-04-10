@@ -120,7 +120,7 @@
     frame.setAttribute("mozbrowser", "true");
     fWindow.appendChild(frame);
     document.body.appendChild(fWindow);
-    frame.contentDocument?.body.classList.add("floating-zulip");
+    frame.contentDocument.body.classList.add("floating-zulip");
     const css = document.createElement("link");
     css.setAttribute(
       "href",
