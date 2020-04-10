@@ -1,20 +1,28 @@
 {
-  "description": "Floating streams in Zulip",
+  "description": "Enable floating Zulip narrows within the webapp.",
   "manifest_version": 2,
   "name": "Zulip Floating Windows",
-  "version": "1.0",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/borderify",
+  "version": "0.1",
+  "homepage_url": "https://github.com/agrawal-d/zulip-floating-windows",
   "icons": {
     "48": "icons/logo-48.png"
   },
   "content_scripts": [
     {
-      "matches": ["*://zulipchat.org/*", "*://chat.zulip.org/*"],
+      "matches": [
+        "*://zulipchat.org/*",
+        "*://chat.zulip.org/*",
+        "*://localhost/*"
+      ],
       "js": ["src/floating-window.js"],
       "css": ["src/css/floating-window.css"]
     },
     {
-      "matches": ["*://zulipchat.org/*", "*://chat.zulip.org/*"],
+      "matches": [
+        "*://zulipchat.org/*",
+        "*://chat.zulip.org/*",
+        "*://localhost/*"
+      ],
       "all_frames": true,
       "css": ["src/css/floating-iframe.css"]
     }
