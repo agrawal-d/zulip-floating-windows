@@ -27,7 +27,7 @@ In the above example, you `Alt+click` anywhere in `general > Custom Source Code 
 
 ### Firefox
 
-* Install](https://addons.mozilla.org/en-GB/firefox/addon/zulip-floating-windows/) from the Firefox addons website.
+* [Install](https://addons.mozilla.org/en-GB/firefox/addon/zulip-floating-windows/) from the Firefox addons website.
 
 * Or install manually-
   * [Download](releases/firefox/extension.zip) the extension file for Firefox from the [releases/firefox](releases/firefox/extension.zip) folder.
